@@ -10,18 +10,31 @@ to change the status quo is first sent to a trained NLP model, which
 estimates the probability that the proposal would pass if all community
 members directly vote on it; then, based on such an estimation, a population
 sample of a certain size is being selected and the proposal is decided
-upon by taking the sample majority. We develop several concrete algorithms
-following this scheme and evaluate them using data from several
-Decentralized Autonomous Organizations (DAOs).
+upon by taking the sample majority. To this end, we develop several variants of the architecture and evaluate
+their performance with respect to three data sources: data obtained from Kaggle
+(a popular venue for ML-related data); data gathered from Snapshot (a popular
+voting application for digital communities); and data sourced from Deep DAO (an
+analytics and information gathering platform for the DAO ecosystem).
 
-In this github folder, there are the central code files. Files order:
+In this github folder, there are the central code files:
 
-Split samples ID to train/test: split_train_test_IDs_for_autoencoder.py
-Due to data size, split the data into samples chuncks: Split_each_chr_to_chunks.py
-Train dimensionality reduction: 3.1. For PCA: PCA_dimension_reduction.py 3.2. For Autoencoder: Autoencoder_for_each_chr.py
-Preprocessing on the covariate matrix: covariate_arrangement.py
-Predict the variables after dimensionality reduction (just for autoencoder): snp_prediction_dimension_reduction.py
-Scale the variables after dimensionality reduction: scale_genes.py
-Join variables from all chromosomes after dimensionality reduction + covarivate matrix: join_all_chr_after_dr.py
-Match the dataframe (the result of section 7) to specific phenotype: match_pheno_IDs.py
-Train perdiction model: 9.1. For height phenotype: Height_prediction.py 9.2. For hypertension phenotype: hypertension_prediction.py
+1. Data files that organize relevant data as data frames:
+- KaggleData.py
+- SnapshotData.py
+- DeepDAOData.py
+2. Creating training and test sets based on the data:
+- DataExploration.py
+3. Data as features (TF-IDF or BERT):
+- NLP_TFIDF.py
+- BERTmodel.py
+4. Classifiers:
+- Models.py
+5. Simulating voting by creating votes:
+- GenerateVotes.py
+6. Sampling:
+- Sampling.py
+7. System evaluation:
+- SystemEvaluation.py
+
+Notes:
+1. Running the main file (main.py) is all that is required
