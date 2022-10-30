@@ -25,4 +25,4 @@ In this github folder, there are the central code files:
 - SystemEvaluation.py
 
 Notes:
-1. Running the main file (main.py) is all that is required
+1. Running the main file (main.py) is all that is required.
